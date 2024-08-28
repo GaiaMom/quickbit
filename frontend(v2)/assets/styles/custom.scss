@@ -1,0 +1,24 @@
+@import 'variables.scss';
+
+.pointer {
+    cursor: pointer;
+}
+.nowrap {
+    white-space: nowrap;
+}
+.w-50p {
+    width: 50%
+}
+.w-80p {
+    width: 80%;
+}
+.top-line-box {
+    border-top: 2px solid $midorangeyellow;
+    background-color: $gray1a;
+}
+.pos-rel {
+    position: relative;
+}
+.invisible {
+    display: none;
+}
