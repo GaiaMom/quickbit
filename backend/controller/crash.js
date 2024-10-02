@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 const verifyToken = require("../middleware/verify_token")
-var crashRouter = require('./routes/crash');
+var crashRouter = require('../routes/crash');
 
 var app = express();
 var server = require('http').createServer(app);

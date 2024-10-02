@@ -5,8 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 const verifyToken = require("../middleware/verify_token")
-var usersRouter = require('./routes/users');
-var appChatRouter = require('./routes/app_chat');
+var usersRouter = require('../routes/users');
+var appChatRouter = require('../routes/app_chat');
 
 var app = express();
 var server = require('http').createServer(app);

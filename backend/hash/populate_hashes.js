@@ -12,15 +12,13 @@ async function loop(cb) {
             svrSeed = engine.genGameHash(cfg.gmName, svrSeed, cfg.pubSeed, gmId + 1)
             dataToInsert.push({ game_id: gmId + 1, hash: svrSeed });
         }
-        await engine.insertHashBatch(/*cfg.gmName*/ '', dataToInsert, cb);
+        await engine.insertHashBatch(/*cfg.gmName*/ '', dataToInsert, null);
 
-        var pct = 100 * (cfg.maxCnt - gmId) / cfg.maxCnt;
+        var pct = ((cfg.maxCnt - gmId) / cfg.maxCnt * 100).toFixed(2); // Two decimal places
         process.stdout.write('\x1b[2K'); // Clear the current line
         process.stdout.write(`\rProcessed: ${cfg.maxCnt - gmId} / ${cfg.maxCnt} (${pct}%) `);
     }
     console.log(' Done');
-    cb();
-
 
     // var inserts = _.range(parallel).map(function () {
     //     return function (cb) {

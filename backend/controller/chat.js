@@ -2,11 +2,12 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('bodyparser')
+var bodyParser = require('body-parser')
 var logger = require('morgan');
 
 const verifyToken = require("../middleware/verify_token")
-var chatRouter = require('./routes/chat');
+var chatRouter = require('../routes/chat')
+var appChatRouter = require('../routes/app_chat')
 
 var app = express();
 var server = require('http').createServer(app);
@@ -23,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/User', usersRouter);
+// app.use('/User', usersRouter);
 app.use('/Chat', appChatRouter);
 
 // catch 404 and forward to error handler

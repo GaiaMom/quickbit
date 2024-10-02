@@ -7,9 +7,9 @@ exports.insertHashBatch = function (game, batch, callback) {
     const values = batch.map(item => `(${db.con.escape(item.game_id)}, ${db.con.escape(item.hash)})`).join(',');
     return db.cmd(db.statement("insert into", game != null && game.length ? game + '_game_hashes' : 'game_hashes', "(GAME_ID, HASH)", "", ` VALUES ${values}`)).then(res => {
         if (res.success) {
-            callback(null, null)
+            if (callback != null ) callback(null, null)
         } else {
-            callback(err)
+            if (callback != null ) callback(err)
         }
     })
 }

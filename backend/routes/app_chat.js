@@ -1,9 +1,9 @@
 var express = require('express')
 var router = express.Router()
+var config = require('../config.js')
 var chatModel = require('./../model/chat')
 var userModel = require('./../model/users')
 const verifyToken = require('../middleware/verify_token')
-var dateFormat = require('dateformat')
 let moment = require('moment')
 
 var axios = require('axios')
